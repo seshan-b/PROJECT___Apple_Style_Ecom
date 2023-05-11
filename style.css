@@ -71,6 +71,48 @@ html {
 }
 /* End Navbar */
 
+/* Cube */
+.cube-wrapper {
+    perspective: 100rem;
+}
+
+.cube {
+    width: 30rem;
+    height: 55rem;
+    background-color: red;
+    transform-style: preserve-3d;
+    transform: rotateY(140deg);
+}
+
+.front-side,
+.back-side {
+    width: 100%;
+    height: 100%;
+    background-color: #fee;
+    position: absolute;
+}
+
+.front-side {
+    transform: translateZ(5rem);
+    padding: 2.5rem;
+}
+
+.front-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.back-side {
+    transform: translateZ(-5rem);
+}
+
+.back-side i {
+    font-size: 12rem;
+}
+
+/* End Cube */
+
 /* Banner */
 .section-1-banner {
     display: flex;
@@ -137,6 +179,34 @@ html {
 }
 
 /* End Banner */
+
+/* Slideshow */
+
+.slideshow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.slideshow div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 5s;
+}
+
+.slideshow div.change {
+    opacity: 1;
+}
+
+/* End Slideshow */
 
 /* End Section 1 */
 
