@@ -1,3 +1,74 @@
+// Cube
+let x = 0
+let y = 0
+let z = 0
+let stopCube = true
+let clearTimer
+
+const cube = document.querySelector('.cube')
+
+// Move X axis
+document.querySelector(".top-x-control")
+.addEventListener('click', () => {
+    cube.style.transform = `rotateX(${x += 20}deg) rotateY(${y}deg) rotateZ(${z}deg)`
+})
+
+
+document.querySelector(".bottom-x-control")
+.addEventListener('click', () => {
+    cube.style.transform = `rotateX(${x += 20}deg) rotateY(${y}deg) rotateZ(${z}deg)`
+})
+
+// Move Y axis
+document.querySelector(".left-y-control")
+.addEventListener('click', () => {
+    cube.style.transform = `rotateY(${y -= 20}deg) rotateX(${x}deg) rotateZ(${z}deg)`
+})
+
+document.querySelector(".right-y-control")
+.addEventListener('click', () => {
+    cube.style.transform = `rotateY(${y += 20}deg) rotateX(${x}deg) rotateZ(${z}deg)`
+})
+
+// Move Z axis
+document.querySelector(".top-z-control")
+.addEventListener('click', () => {
+    cube.style.transform = `rotateY(${y}deg) rotateX(${x}deg) rotateZ(${z -= 20}deg)`
+})
+
+document.querySelector(".bottom-z-control")
+.addEventListener('click', () => {
+    cube.style.transform = `rotateY(${y}deg) rotateX(${x}deg) rotateZ(${z += 20}deg)`
+})
+
+const playPause = () => {
+    if(stopCube) {
+        clearTimer = setInterval(() => {
+            cube.style.transform = `rotateX(${x}deg) rotateY(${y++}deg) rotateZ(${z}deg)`
+        }, 100)        
+    }
+    else {
+        clearInterval(clearTimer)
+    }
+
+}
+
+playPause()
+
+
+document.querySelector('.controls')
+.addEventListener('mouseover', () => {
+    stopCube = false
+    playPause()
+})
+
+
+document.querySelector('.controls')
+.addEventListener('mouseout', () => {
+    stopCube = true
+    playPause()
+})
+
 // Slideshow
 
 const slideshowDivs = () => {
